@@ -4,6 +4,7 @@ WebAPI
 
 WebAPI for testing purposes. It is configure to run on https://localhost:5001
 
+
 *******************
 Release Information
 *******************
@@ -29,7 +30,7 @@ This API has 3 Controllers with CRUD Operations. The endpoints are as follows:
 - GET api/ContactTypes/:id (return a ContactType by Id)
 
 **************************
-Migration and Database
+**Migration and Database**
 **************************
 
 To create the database:
@@ -42,13 +43,10 @@ That process generate a Initial.cs inside of Migrations folder
 - Go to the end of void Up, before '}'
 - Hit Enter to create space to insert this:
 
-var sp = @"CREATE PROCEDURE AddReservation
-                     @contactName varchar, @contactType int, @contactPhone varchar, @birthday date, @reservationPlace varchar, @reservationDate datetime,
-                     @reservationId INT OUTPUT
+var sp = @"CREATE PROCEDURE AddReservation @contactName varchar, @contactType int, @contactPhone varchar, @birthday date, @reservationPlace varchar, @reservationDate datetime, @reservationId INT OUTPUT
                      AS
                     BEGIN
                         DECLARE @contactId int = 0;
-
                         SET @contactId = (SELECT Id
                         FROM Contacts
                         WHERE ContactName = @contactName AND ContactType = @contactType AND ContactPhone = @contactPhone AND Birthday = @birthday);
