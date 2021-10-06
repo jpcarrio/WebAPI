@@ -44,8 +44,11 @@ That process generate a Initial.cs inside of Migrations folder
 * Hit Enter to create space to insert this:
 
 var sp = @"CREATE PROCEDURE 
+
 AddReservation @contactName varchar, @contactType int, @contactPhone varchar, @birthday date, @reservationPlace varchar, @reservationDate datetime, @reservationId 
-INT 
+
+INT
+
 OUTPUT
 
                      AS
