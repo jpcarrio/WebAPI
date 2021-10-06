@@ -43,9 +43,9 @@ That process generate a Initial.cs inside of Migrations folder
 * Go to the end of void Up, before '}'
 * Hit Enter to create space to insert this:
 
-```var sp = @"CREATE PROCEDURE AddReservation @contactName varchar, @contactType int, @contactPhone varchar, @birthday date, @reservationPlace varchar, @reservationDate datetime, @reservationId INT OUTPUT
-                     AS```
-                  ```BEGIN
+var sp = @"CREATE PROCEDURE AddReservation @contactName varchar, @contactType int, @contactPhone varchar, @birthday date, @reservationPlace varchar, @reservationDate datetime, @reservationId INT OUTPUT
+                     AS
+                  BEGIN
                         DECLARE @contactId int = 0;
                         SET @contactId = (SELECT Id
                         FROM Contacts
@@ -61,7 +61,7 @@ That process generate a Initial.cs inside of Migrations folder
                         SELECT @reservationId = SCOPE_IDENTITY();
                     END";
 
-            migrationBuilder.Sql(sp);```
+            migrationBuilder.Sql(sp);
 
 
 * Type Update-Database
