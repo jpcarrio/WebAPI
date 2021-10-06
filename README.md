@@ -43,7 +43,10 @@ That process generate a Initial.cs inside of Migrations folder
 * Go to the end of void Up, before '}'
 * Hit Enter to create space to insert this:
 
-var sp = @"CREATE PROCEDURE AddReservation @contactName varchar, @contactType int, @contactPhone varchar, @birthday date, @reservationPlace varchar, @reservationDate datetime, @reservationId INT OUTPUT
+var sp = @"CREATE PROCEDURE 
+AddReservation @contactName varchar, @contactType int, @contactPhone varchar, @birthday date, @reservationPlace varchar, @reservationDate datetime, @reservationId 
+INT 
+OUTPUT
 
                      AS
                      
