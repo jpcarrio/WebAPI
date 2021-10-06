@@ -90,6 +90,7 @@ namespace WebAPI.Controllers
         [HttpPost]        
         public IActionResult PostReservation([FromBody] ContactReservation contactReservation)
         {
+            //Prepare each parameter to supply the Stored Procedure
             var parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@contactName", contactReservation.contactName));
             parameters.Add(new SqlParameter("@contactType", contactReservation.contactType));
@@ -98,7 +99,8 @@ namespace WebAPI.Controllers
             parameters.Add(new SqlParameter("@reservationPlace", contactReservation.reservationPlace));
             parameters.Add(new SqlParameter("@reservationDate", contactReservation.reservationDate));
             parameters.Add(new SqlParameter("@reservationId", 1));
-                       
+
+            //Execute the Stored procedure and passing parameters
             var result = _context.Database.ExecuteSqlCommand("exec AddReservation @contactName, @contactType, @contactPhone, @birthday, @reservationPlace, @reservationDate, @reservationId out", parameters);
                         
             return Ok(result);

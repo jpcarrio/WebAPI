@@ -30,17 +30,28 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/Contacts/5
-        [HttpGet("{name}")]
-        public IActionResult GetContact([FromRoute] string name)
+        [HttpGet("{param}")]
+        public IActionResult GetContact([FromRoute] string param)
         {
+            int id = 0;
+            var contact = new Contact();
+
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var contact = _context.Contacts.Where(c => c.ContactName.StartsWith(name)).FirstOrDefault();
-
-            //var contact = await _context.Contacts.FindAsync(id);
+            //If it is a number the look up by ID, if not look up by Name
+            if (int.TryParse(param, out id))
+            {
+                contact = _context.Contacts.Where(c => c.Id == id).FirstOrDefault();
+            }
+            else
+            {
+                contact = _context.Contacts.Where(c => c.ContactName.StartsWith(param)).FirstOrDefault();
+            }           
+            
 
             if (contact == null)
             {
