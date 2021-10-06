@@ -20,10 +20,10 @@ This API has 3 Controllers with CRUD Operations. The endpoints are as follows:
 
 **ReservationController**
 * GET api/Reservations (return all Reservations)
-* GET api/Reservation/:id (return a Reservation by Id)
+* GET api/Reservations/:id (return a Reservation by Id)
 * POST api/Reservations (Create new Reservation and a new Contact if not exists)
-* PUT api/Contacts (Update a Reservation)
-* DELETE api/Contacts/:id (Delete a Reservation by Id)
+* PUT api/Reservations (Update a Reservation)
+* DELETE api/Reservations/:id (Delete a Reservation by Id)
 
 **ContactTypesController**
 * GET api/ContactTypes (return all ContactTypes)
