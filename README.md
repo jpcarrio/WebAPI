@@ -63,7 +63,7 @@ That process generate a Initial.cs inside of Migrations folder
 
           migrationBuilder.Sql(sp);
 
-
+* Save file
 * Type Update-Database
 
 After this, the database is created, so it is ready to use.
