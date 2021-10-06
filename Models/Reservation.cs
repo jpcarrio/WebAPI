@@ -23,5 +23,7 @@ namespace WebAPI.Models
 
         [Column(TypeName = "bit")]
         public bool Favorite { get; set; } = false;
+
+        public virtual Contact contacts {get; set;}
     }
 }
